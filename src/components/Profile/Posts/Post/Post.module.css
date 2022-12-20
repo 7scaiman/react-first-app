@@ -1,0 +1,20 @@
+.item{
+ display:  flex;
+ padding: 10px;
+}
+.item img 
+{
+    margin-right: 10px;
+    height: 50px;
+    width: 50px;
+    border-radius: 10px;
+}
+.nickname{
+    color: black;
+    font-size: 20px;
+    font-weight: 500;
+}
+input{
+    height: 30px;
+    width: 30px;
+}

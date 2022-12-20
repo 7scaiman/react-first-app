@@ -1,0 +1,13 @@
+.Sidebar
+{
+  width: 145px;
+    grid-area: sidebar;
+    background-color: blue;
+    color: aliceblue;
+  }
+a{
+  color: aliceblue;
+}
+.active{
+  color: gold;
+}

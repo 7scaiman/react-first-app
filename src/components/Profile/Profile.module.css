@@ -1,0 +1,9 @@
+.Content{
+  grid-area: cont;
+  margin-left: -50px;
+}
+
+img{
+    width: 1000px;
+    height: 400px;
+}

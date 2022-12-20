@@ -1,0 +1,10 @@
+
+  .HeaderGrid{
+    background-color: yellow;
+    grid-area: header;
+  }
+  .HeaderGrid img{
+    padding: 5px;
+    height: 50px;
+    width: 50px;
+  }

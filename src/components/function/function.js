@@ -1,0 +1,1 @@
+const SetActive = ({isActive}) => isActive ? css.active : '' ;

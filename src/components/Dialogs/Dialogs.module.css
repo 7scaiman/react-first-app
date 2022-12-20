@@ -1,0 +1,28 @@
+.dialogs{
+display: flex;
+}
+.dialogs_items{
+ margin-right: 2    00px;
+}
+.Dialogitem{
+  margin: 15px;
+}
+.messages{
+margin-left: 100px;
+margin-top: 10px;
+margin-bottom: 20px;
+border-color: black;
+border-style: solid;
+border-width: 1px;
+}
+.message{
+ margin: 15px;
+ margin-left: 20px;
+ margin-right: 40px;
+}
+.active{
+    color: gold;
+}
+.noActive{
+ color: black;
+}

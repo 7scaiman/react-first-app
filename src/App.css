@@ -1,0 +1,23 @@
+.container {
+  max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    
+}
+
+.App-Wrapper{
+  display: grid;
+
+  grid-template-areas: 
+  "header header header"
+  "sidebar cont cont";
+  
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 2fr 10fr;
+  grid-gap: 10px;
+}
+.App-Wrapper-Content{
+  background-color: floralwhite;
+}
