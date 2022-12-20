@@ -15,8 +15,8 @@ function App(props) { ///// or const App = () => {} стрілочна функ�
             <SideBar/>
             <div className="App-Wrapper-Content">
             <Routes>
-            <Route path='/Profile' element={<Profile postData={props.postData} />}/>
-            <Route path='/Dialogs/*' element={<Dialogs messagesData={props.dialogsData} dialogsData={props.dialogsData} />}/>
+            <Route path='/Profile' element={<Profile state={props.state.profilePage} />}/>
+            <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
           </Routes>
            
             </div>         

@@ -10,7 +10,7 @@ let Profile = (props) =>{
         <body className={css.Content}>
            <div>
             <ProfileInfo/>
-              <Posts postData={props.postData}/>
+              <Posts postData={props.state.posts}/>
            </div>
         </body>
       );
