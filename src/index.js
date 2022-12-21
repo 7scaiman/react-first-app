@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from './redux/state';
+import redux from './redux/state';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App state={state}/>
+    <App login={redux.login} state={redux.state}/>
     {/* second option <App post={state.post} messages={state.messages} dialogs={state.dialogs}/> */}
   </React.StrictMode>
 );

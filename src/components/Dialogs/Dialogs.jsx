@@ -10,7 +10,7 @@ const SetActive = ({ isActive }) => isActive ? css.active : css.noActive;
 
 
 const Dialogs = (props) => {
-  let dialogsMapElements = props.state.dialogs.map( (el) => <DialogItem name={el.name} /> ) ////map
+  let dialogsMapElements = props.state.dialogs.map( (el) => <DialogItem name={el.name} logo={el.logo} /> ) ////map
   
   let messageMapElements = props.state.messages.map( (el) => <MessageItem message={el.message}/>) ////map
   return (

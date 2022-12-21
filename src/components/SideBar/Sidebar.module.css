@@ -1,13 +1,31 @@
 .Sidebar
 {
   width: 145px;
-    grid-area: sidebar;
     background-color: blue;
     color: aliceblue;
+    margin-top: 10px;
+    padding-right: 50px;
   }
 a{
   color: aliceblue;
 }
 .active{
   color: gold;
+  margin-left: 10px;
+}
+.content{
+  margin-left: 20px;
+}
+.logo{
+  height: 50px;
+    width: 50px;
+    border-radius: 10px;     
+    margin-top: 20px;
+}
+.flex {
+  display: inline-flex;
+}
+h4{
+  padding-top: 10px;
+  padding-left: 5px;
 }

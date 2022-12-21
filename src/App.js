@@ -10,10 +10,10 @@ function App(props) { ///// or const App = () => {} стрілочна функ�
     <div className="container">
       <div>
       <BrowserRouter>
-        <div className="App-Wrapper">
+        <div className="">
             <Header/>
-            <SideBar/>
-            <div className="App-Wrapper-Content">
+            <div className="flex">
+            <SideBar login={props.login} />
             <Routes>
             <Route path='/Profile' element={<Profile state={props.state.profilePage} />}/>
             <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>

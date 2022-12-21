@@ -19,5 +19,8 @@
   grid-gap: 10px;
 }
 .App-Wrapper-Content{
-  background-color: floralwhite;
+  
+}
+.flex{
+  display:  flex;
 }

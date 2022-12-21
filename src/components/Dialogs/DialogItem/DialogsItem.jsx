@@ -7,7 +7,15 @@ const SetActive = ({ isActive }) => isActive ? css.active : css.noActive;
 
 const DialogItem = (props) => {
   return (
-    <div className={css.Dialogitem}> <NavLink to={"/Dialogs/" + props.name} className={SetActive}>{props.name}</NavLink></div>
+    <div className={css.Dialogitem}>
+       <NavLink to={"/Dialogs/" + props.name} className={SetActive}>
+      <div className={css.dialogs} >
+        <img src={props.logo} className={css.logo}/>
+         {props.name}
+        
+    </div>
+    </NavLink>
+    </div>
   );
 }
 

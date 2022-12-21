@@ -1,6 +1,11 @@
 .dialogs{
 display: flex;
 }
+.logo{
+  height: 50px;
+    width: 50px;
+    border-radius: 10px;                
+}
 .dialogs_items{
  margin-right: 2    00px;
 }
