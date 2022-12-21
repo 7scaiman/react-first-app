@@ -6,21 +6,6 @@
     padding-right: 16px;
     
 }
-
-.App-Wrapper{
-  display: grid;
-
-  grid-template-areas: 
-  "header header header"
-  "sidebar cont cont";
-  
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-gap: 10px;
-}
-.App-Wrapper-Content{
-  
-}
 .flex{
   display:  flex;
 }
