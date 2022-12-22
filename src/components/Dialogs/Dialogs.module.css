@@ -7,16 +7,20 @@ display: flex;
     border-radius: 10px;                
 }
 .dialogs_items{
- margin-right: 2    00px;
+ margin-right: 2px;
+ 
 }
 .Dialogitem{
   margin: 15px;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: black;
+  border-width: 1px;
 }
 .messages{
 margin-left: 100px;
 margin-top: 10px;
 margin-bottom: 20px;
-border-color: black;
 border-style: solid;
 border-width: 1px;
 }
@@ -30,4 +34,9 @@ border-width: 1px;
 }
 .noActive{
  color: black;
+}
+.nickname{
+  font-weight: 500;
+  margin-top: 10px;
+  margin-left: 5px;
 }
