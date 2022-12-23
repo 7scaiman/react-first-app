@@ -21,11 +21,24 @@ a{
     width: 50px;
     border-radius: 10px;     
     margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
 }
-.flex {
+.flexer {
+  display: flex;
+  flex-direction: column;
+}
+.flex_item{
   display: inline-flex;
+  border: solid;
+  width: 189px;
+  border-color: yellow;
+  margin-top: 20px;
+  margin-left: -20px;
+  border-radius: 4px;
+  border-width: 2px;
 }
 h4{
-  padding-top: 10px;
+  padding-top: 5px;
   padding-left: 5px;
 }

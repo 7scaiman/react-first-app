@@ -25,11 +25,11 @@ let SideBar = (props) => {
       <div><NavLink to="/Setting" className={SetActive}>Setting</NavLink></div>
       <div><NavLink to="/friends" className={SetActive}>Friends</NavLink></div>
       
-      
-        <div className={css.flex}><img src={props.login[1].logo} className={css.logo}/><h4>{props.login[1].nickname}</h4></div>
-        <div className={css.flex}><img src={props.login[0].logo} className={css.logo}/><h4>{props.login[0].nickname}</h4></div>
-        <div className={css.flex}><img src={props.login[4].logo} className={css.logo}/><h4>{props.login[4].nickname}</h4></div>
-    
+       <div className={css.flexer}>
+        <div className={css.flex_item}><img src={props.login[1].logo} className={css.logo}/><h4>{props.login[1].nickname}</h4></div>
+        <div className={css.flex_item}><img src={props.login[0].logo} className={css.logo}/><h4>{props.login[0].nickname}</h4></div>
+        <div className={css.flex_item}><img src={props.login[4].logo} className={css.logo}/><h4>{props.login[4].nickname}</h4></div>
+       </div>
 
      </div>
     </div>

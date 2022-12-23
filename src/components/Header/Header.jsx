@@ -4,7 +4,7 @@ import css from "./Header.module.css"
 function Header() { ///// or const App = () => {} стрілочна функція
   
     return (
-      <header className={css.HeaderGrid}>
+      <header className={css.Header}>
           <img src={logo}/>
       </header>
     );
