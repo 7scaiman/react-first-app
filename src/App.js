@@ -15,7 +15,7 @@ function App(props) { ///// or const App = () => {} стрілочна функ�
             <div className="flex">
             <SideBar login={props.login} />
             <Routes>
-            <Route path='/Profile' element={<Profile state={props.state.profilePage} />}/>
+            <Route path='/Profile' element={<Profile state={props.state.profilePage} reduxFunction={props.reduxFunction} />}/>
             <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
           </Routes>
            

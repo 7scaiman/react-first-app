@@ -1,3 +1,5 @@
+import { rerender } from "../render"
+
   let login = [
     {id:1, nickname :"Pudgekiller228", password: "123q",logo:"https://avatars.akamai.steamstatic.com/479102385e9fd0d34ddddda4e0434840a794f7e1_full.jpg"},
     {id:2, nickname :"Pudgero", password: "123q",logo: "https://i1.sndcdn.com/avatars-000120278070-velp67-t240x240.jpg"},
@@ -15,8 +17,7 @@
                 { id: 2, post: 'Dendi pudge', likecount: 10, nickname: login[1].nickname, img: login[1].logo  },
                 { id: 3, post: 'Pudge number one', likecount: 7, nickname: login[2].nickname, img: login[2].logo },
                 { id: 4, post: 'radic 24min', likecount: 1000, nickname: login[4].nickname, img: login[4].logo },
-                { id: 5, post: 'i canceled tp ', likecount: 1, nickname: login[3].nickname, img: login[3].logo },
-                { id: 6, post: 'The owner of the white throne', likecount: 777, nickname: login[5].nickname, img: login[5].logo }
+                { id: 5, post: 'i canceled tp ', likecount: 1, nickname: login[3].nickname, img: login[3].logo }
             ]
 
         },
@@ -39,8 +40,24 @@
         }
 
     }
+    
     let redux = {
         login: login,
-        state: state
+        state: state,
+    }
+    let AddPost = (postMassage) => { 
+        let a = postMassage
+        let newPost = {
+            id:5,
+            post: a,
+            likecount: 0,
+            nickname: login[0].nickname,
+            img: login[0].logo
+        }
+        state.profilePage.posts.push(newPost)
+        rerender(redux)
+    }
+  export  let reduxFunction = {
+        AddPost:AddPost
     }
     export default  redux;

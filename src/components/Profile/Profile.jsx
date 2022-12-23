@@ -10,7 +10,7 @@ let Profile = (props) =>{
         <body className={css.Content}>
            <div>
             <ProfileInfo/>
-              <Posts postData={props.state.posts}/>
+              <Posts postData={props.state.posts} addPost={props.reduxFunction.AddPost}/>
            </div>
         </body>
       );
