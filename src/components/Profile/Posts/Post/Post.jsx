@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import css from "./Post.module.css"
 
 function  Post(props){
+    let [likecounter,setlikecounter] = useState(props.likecount)
     return(
         
         <div className={css.item}>
@@ -9,13 +10,16 @@ function  Post(props){
             <div className="">
             <div className={css.nickname}>{props.nickname}</div>
             <div>{props.post}</div>
-            <div><input type="image" src="https://phonoteka.org/uploads/posts/2021-05/thumbs/1620256442_29-phonoteka_org-p-palets-vverkh-fon-32.jpg"/>{props.likecount}</div>
+            <div><input type="image" src="https://phonoteka.org/uploads/posts/2021-05/thumbs/1620256442_29-phonoteka_org-p-palets-vverkh-fon-32.jpg" 
+            onClick={()=>
+     {
+           setlikecounter(likecounter+1)
+     }
+    }
+        />{likecounter}</div>
             </div>
         </div>
     );
-
-}
-function counts(count){
 
 }
 export default Post;
