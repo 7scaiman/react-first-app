@@ -3,6 +3,7 @@ import css from "./Post.module.css"
 
 function  Post(props){
     let [likecounter,setlikecounter] = useState(props.likecount)
+
     return(
         
         <div className={css.item}>
@@ -13,6 +14,9 @@ function  Post(props){
             <div><input type="image" src="https://phonoteka.org/uploads/posts/2021-05/thumbs/1620256442_29-phonoteka_org-p-palets-vverkh-fon-32.jpg" 
             onClick={()=>
      {
+        if(likecounter==10){
+            alert('Merry Christmas')
+        }
            setlikecounter(likecounter+1)
      }
     }
