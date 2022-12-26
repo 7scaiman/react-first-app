@@ -15,13 +15,18 @@ function Posts(props){
         else
         props.addPost(text)
     }
+    let onChangeFunct = () => {
+        let text = NewPostElement.current.value;
+        console.log(text)
+        props.UpdateNewPostText(text)
+    }
     let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount}/> )
     return(
         <div className={css.Posts}>
             
             <div>
                 <h3>New post</h3>
-                <textarea ref={NewPostElement}></textarea>
+                <textarea ref={NewPostElement} value={props.newPost} onChange={onChangeFunct}/>
                 <div>
                 <button onClick={AddPost}>add post</button>
                 </div>

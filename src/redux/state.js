@@ -18,8 +18,8 @@ import { rerender } from "../render"
                 { id: 3, post: 'Pudge number one', likecount: 7, nickname: login[2].nickname, img: login[2].logo },
                 { id: 4, post: 'radic 24min', likecount: 1000, nickname: login[4].nickname, img: login[4].logo },
                 { id: 5, post: 'i canceled tp ', likecount: 1, nickname: login[3].nickname, img: login[3].logo }
-            ]
-
+            ],
+            newPostText:"NewText"
         },
         dialogsPage: {
             dialogs: [
@@ -40,11 +40,13 @@ import { rerender } from "../render"
         }
 
     }
-    
+
     let redux = {
         login: login,
         state: state,
     }
+
+///////////// Function    
     let AddPost = (postMassage) => { 
         let a = postMassage
         let newPost = {
@@ -57,7 +59,21 @@ import { rerender } from "../render"
         state.profilePage.posts.push(newPost)
         rerender(redux)
     }
+
+   let UpdateNewPostText = (newText) => {
+   state.profilePage.newPostText = newText;
+    rerender(redux)
+
+   }
+
+
   export  let reduxFunction = {
-        AddPost:AddPost
+        AddPost:AddPost,
+        UpdateNewPostText:UpdateNewPostText
     }
     export default  redux;
+
+    window.redux = redux;
+    window.state = state;
+    window.login = login;
+    window.reduxFunction = reduxFunction
