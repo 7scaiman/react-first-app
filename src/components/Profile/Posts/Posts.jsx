@@ -7,7 +7,7 @@ let  NewPostElement = React.createRef()
 
 
 function Posts(props){
-    
+    let IdAdd
     let AddPost = () => {
         let text = NewPostElement.current.value; /// current - хтмл елемент
         if(text.trim() == "")
@@ -17,10 +17,9 @@ function Posts(props){
     }
     let onChangeFunct = () => {
         let text = NewPostElement.current.value;
-        console.log(text)
-        props.UpdateNewPostText(text)
+        props.reduxFunction.UpdateNewPostText(text)
     }
-    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount}/> )
+    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount} id={el.id} UpdateNewLikePost={props.reduxFunction.UpdateNewLikePost}/> )
     return(
         <div className={css.Posts}>
             
