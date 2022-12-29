@@ -7,7 +7,6 @@ let  NewPostElement = React.createRef()
 
 
 function Posts(props){
-    let IdAdd
     let AddPost = () => {
         let text = NewPostElement.current.value; /// current - хтмл елемент
         if(text.trim() == "")

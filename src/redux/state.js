@@ -1,4 +1,6 @@
-import { rerender } from "../render"
+function rerender(){
+    console.log(1)
+}
 
 let login = [
     { id: 1, nickname: "Pudgekiller228", password: "123q", logo: "https://avatars.akamai.steamstatic.com/479102385e9fd0d34ddddda4e0434840a794f7e1_full.jpg" },
@@ -18,7 +20,8 @@ let state = {
             { id: 3, post: 'Pudge number one', likecount: 7, nickname: login[2].nickname, img: login[2].logo },
             { id: 4, post: 'radic 24min', likecount: 1000, nickname: login[4].nickname, img: login[4].logo },
             { id: 5, post: 'i canceled tp ', likecount: 1, nickname: login[3].nickname, img: login[3].logo },
-            { id: 6, post: 'AAAAAAAAAAAAA!', likecount: 22, nickname: login[5].nickname, img: login[5].logo }
+            { id: 6, post: 'AAAAAAAAAAAAA!', likecount: 22, nickname: login[5].nickname, img: login[5].logo },
+            
         ],
         newPostText: "NewText"
     },
@@ -61,19 +64,22 @@ let AddPost = (postMassage) => {
     }
     state.profilePage.posts.push(newPost)
     NewidAdd++;
-    rerender(redux)
+    rerender()
 }
 
-let UpdateNewPostText = (newText) => {
+const UpdateNewPostText = (newText) => {
     state.profilePage.newPostText = newText;
-    rerender(redux)
+    rerender()
 
 }
-let UpdateNewLikePost = (like, id) => {
+const UpdateNewLikePost = (like, id) => {
     state.profilePage.posts[id-1].likecount = like + 1;
-    rerender(redux);
+    rerender();
 }
 
+export const subscribe=(observer) => {
+    rerender=observer; /// observer
+}
 
 export let reduxFunction = {
     AddPost: AddPost,
