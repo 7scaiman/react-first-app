@@ -1,6 +1,6 @@
 import React from "react";
 import img1 from "../../../img/cosmos.png"
-import css from "./ProfileInfo.module.css"
+import css from "../Profile.module.css"
 const ProfileInfo = () => {
     return(
         <div>

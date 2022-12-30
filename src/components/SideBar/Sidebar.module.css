@@ -5,6 +5,8 @@
     color: aliceblue;
     margin-top: 10px;
     padding-right: 50px;
+    height: calc(100vh - XXXpx);
+
   }
 a{
   color: aliceblue;

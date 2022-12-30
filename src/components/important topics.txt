@@ -6,3 +6,4 @@
 6 ref
 useState useEffect useContext(Hook)
 flux
+callback, subscribe, observer
