@@ -3,7 +3,7 @@ import css from "./Post.module.css"
 
 function  Post(props){
     let [likecounter,setlikecounter] = useState(props.likecount)
-     
+
     return(
         
         <div className={css.item}>

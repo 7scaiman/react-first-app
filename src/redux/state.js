@@ -23,7 +23,7 @@ let state = {
             { id: 6, post: 'AAAAAAAAAAAAA!', likecount: 22, nickname: login[5].nickname, img: login[5].logo },
             
         ],
-        newPostText: "NewText"
+        newPostText: ""
     },
     dialogsPage: {
         dialogs: [
