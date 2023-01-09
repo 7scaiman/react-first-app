@@ -3,22 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import redux, { subscribe } from './redux/state';
-import { reduxFunction } from './redux/state';
-
+import store, { login } from './redux/state';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-let rerender = () => {
+let rerender = (state) => {
   root.render(
     <React.StrictMode>
-    <App login={redux.login} state={redux.state} reduxFunction={reduxFunction}/>
+    <App login={login} state={state} 
+    UpdateNewLikePost={store.UpdateNewLikePost.bind(state)} UpdateNewPostText={store.UpdateNewPostText.bind(store)} 
+    AddPost={store.AddPost.bind(store)}/>       //// bind
     {/* second option <App post={state.post} messages={state.messages} dialogs={state.dialogs}/> */}
   </React.StrictMode>
 );
 }
-rerender();
-subscribe(rerender);
+rerender(store._state);
+store.subscribe(rerender);
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

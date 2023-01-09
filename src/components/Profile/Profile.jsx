@@ -9,7 +9,8 @@ let Profile = (props) =>{
         <body className={css.Content}>
            <div>
             <ProfileInfo/>
-              <Posts postData={props.state.posts} addPost={props.reduxFunction.AddPost} newPost={props.state.newPostText} reduxFunction={props.reduxFunction}/>
+              <Posts postData={props.state.posts} addPost={props.AddPost} newPost={props.state.newPostText}
+              UpdateNewLikePost={props.UpdateNewLikePost} UpdateNewPostText={props.UpdateNewPostText} />
            </div>
         </body>
       );

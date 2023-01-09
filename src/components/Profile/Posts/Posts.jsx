@@ -7,18 +7,19 @@ let  NewPostElement = React.createRef()
 
 
 function Posts(props){
+    console.log(props)
     let AddPost = () => {
         let text = NewPostElement.current.value; /// current - хтмл елемент
-        if(text.trim() == "")
+        if(text.trim() === "")
         return alert("the text can't be empty")
         else
         props.addPost(text)
     }
     let onChangeFunct = () => {
         let text = NewPostElement.current.value;
-        props.reduxFunction.UpdateNewPostText(text)
+        props.UpdateNewPostText(text)
     }
-    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount} id={el.id} UpdateNewLikePost={props.reduxFunction.UpdateNewLikePost}/> )
+    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount} id={el.id} UpdateNewLikePost={props.UpdateNewLikePost}/> )
     return(
         <div className={css.Posts}>
             
