@@ -18,7 +18,7 @@ function  Post(props){
              alert('Merry Christmas')
             }
             setlikecounter(likecounter+1)
-            props.UpdateNewLikePost(likecounter,props.id)
+            props.dispatch({type: "UpdateNewLikePost", id:props.id,like:likecounter})
         }
     }
         />{likecounter}</div>

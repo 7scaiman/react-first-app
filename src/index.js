@@ -10,9 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerender = (state) => {
   root.render(
     <React.StrictMode>
-    <App login={login} state={state} 
-    UpdateNewLikePost={store.UpdateNewLikePost.bind(state)} UpdateNewPostText={store.UpdateNewPostText.bind(store)} 
-    AddPost={store.AddPost.bind(store)}/>       //// bind
+    <App login={login} state={state} dispatch={store.dispatch.bind(store /*bind*/)}/>
     {/* second option <App post={state.post} messages={state.messages} dialogs={state.dialogs}/> */}
   </React.StrictMode>
 );

@@ -1,4 +1,5 @@
 
+
 export let login = [
     { id: 1, nickname: "Pudgekiller228", password: "123q", logo: "https://avatars.akamai.steamstatic.com/479102385e9fd0d34ddddda4e0434840a794f7e1_full.jpg" },
     { id: 2, nickname: "Pudgero", password: "123q", logo: "https://i1.sndcdn.com/avatars-000120278070-velp67-t240x240.jpg" },
@@ -48,12 +49,12 @@ let store = {
     GetState(){
         return this._state;
     },  
-    AddPost(postMassage){
-        let a = postMassage
+    AddPost(){
+      
         let NewId = this._state.profilePage.posts[this._state.profilePage.posts.length-1].id + 1;
         let newPost = {
             id: NewId,
-            post: a,
+            post: this._state.profilePage.newPostText,
             likecount: 0,
             nickname: login[0].nickname,
             img: login[0].logo
@@ -61,21 +62,45 @@ let store = {
         this._state.profilePage.posts.push(newPost)
         this.rerender(this._state)
     },
-    UpdateNewPostText(newText){
+    UpdateNewPostText(newText){  
         this._state.profilePage.newPostText = newText;
-        this.rerender()
+        this.rerender(this._state)
         
     },
     UpdateNewLikePost(like, id){
         this.profilePage.posts[id-1].likecount = like + 1;
-        this.rerender();
+        this.rerender(this._state);
     },
     subscribe(observer){
         this.rerender=observer; /// observer
     },
+    dispatch(action){
+        if(action.type === "AddPost"){
+            let NewId = this._state.profilePage.posts[this._state.profilePage.posts.length-1].id + 1;
+            let newPost = {
+                id: NewId,
+                post: this._state.profilePage.newPostText,
+                likecount: 0,
+                nickname: login[0].nickname,
+                img: login[0].logo
+            }
+            this._state.profilePage.posts.push(newPost)
+            this.rerender(this._state)
+        }
+        else if(action.type === "UpdateNewPostText"){
+            this._state.profilePage.newPostText = action.newText;
+            this.rerender(this._state)
+        }
+        else if(action.type === "UpdateNewLikePost"){
+            this._state.profilePage.posts[action.id-1].likecount = action.like + 1;
+            this.rerender(this._state);
+        }
+        else{
+           alert("ERROR dispatch")
+        }
+
+    }
 }
-store.AddPost("ss")
-store.UpdateNewPostText("joo")
 
 
 

@@ -7,3 +7,4 @@
 useState useEffect useContext(Hook)
 flux
 callback, subscribe, observer
+bind

@@ -7,19 +7,21 @@ let  NewPostElement = React.createRef()
 
 
 function Posts(props){
-    console.log(props)
+    
     let AddPost = () => {
-        let text = NewPostElement.current.value; /// current - хтмл елемент
-        if(text.trim() === "")
+       
+        if(props.newPost.trim() === "")
         return alert("the text can't be empty")
         else
-        props.addPost(text)
+        props.dispatch({type: 'AddPost'})
     }
     let onChangeFunct = () => {
-        let text = NewPostElement.current.value;
-        props.UpdateNewPostText(text)
+        let text = NewPostElement.current.value;/// current - хтмл елемент
+        
+        props.dispatch({type:'UpdateNewPostText', newText:text})
     }
-    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount} id={el.id} UpdateNewLikePost={props.UpdateNewLikePost}/> )
+    
+    let postElement = props.postData.map( (el) => <Post nickname={el.nickname} post={el.post} img={el.img} likecount={el.likecount} id={el.id} dispatch={props.dispatch}/> )
     return(
         <div className={css.Posts}>
             

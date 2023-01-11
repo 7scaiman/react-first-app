@@ -7,14 +7,12 @@ const SetActive2 = ({isActive}) =>{                  /// SetActive == SetActive2
   return css.active
   else
   return ''
-  
-  return ''
-}
+  }
 let SideBar = (props) => {
   /// let classes = css.Sliderbar + css.style2 // ClassName={classes} == className ="slidebar style2" 
   /// isActive == SetActive     ? = тернарнйй операто if else
   /// if(IsActive) = css.active else ''   ===  (IsActive) => IsActive ? css.active : ''
-  console.log(props.login[1].logo)
+
   return (
     <div className={css.Sidebar}>
      <div className={css.content}>
