@@ -1,5 +1,4 @@
 
-
 export let login = [
     { id: 1, nickname: "Pudgekiller228", password: "123q", logo: "https://avatars.akamai.steamstatic.com/479102385e9fd0d34ddddda4e0434840a794f7e1_full.jpg" },
     { id: 2, nickname: "Pudgero", password: "123q", logo: "https://i1.sndcdn.com/avatars-000120278070-velp67-t240x240.jpg" },
@@ -38,13 +37,15 @@ let store = {
                 { id: 6, name: login[5].nickname, logo: login[5].logo }
             ],
             messages: [
-                { id: 1, message: 'You dont even try', date: '20/09/2022', time: '17:40', },
-                { id: 2, message: '1000-7', date: '03/09/2022', time: '13:33', },
-                { id: 3, message: 'Mid or feed', date: '23/07/2022', time: '12:00', },
-                { id: 4, message: 'AAAAAAAAA!', date: '01/01/2022', time: '00:10', },
-                { id: 5, message: 'MmMm Divine', date: '12/09/2022', time: '18:40', },
-                { id: 6, message: 'PITIFUL ALLIES!!', date: '01/09/2022', time: '22:40', }]
-        }
+                { id: 1, message: 'You dont even try', date: '20/09/2022', time: '17:40', nickname: login[3].nickname,logo: login[3].logo,IdOwner:login[3].id},
+                { id: 2, message: '1000-7', date: '03/09/2022', time: '13:33',nickname: login[0].nickname,logo: login[0].logo,IdOwner:login[0].id },
+                { id: 3, message: 'Mid or feed', date: '23/07/2022', time: '12:00', nickname: login[2].nickname,logo: login[2].logo,IdOwner:login[2].id},
+                { id: 4, message: 'AAAAAAAAA!', date: '01/01/2022', time: '00:10', nickname: login[4].nickname,logo: login[4].logo,IdOwner:login[4].id},
+                { id: 5, message: 'MmMm Divine', date: '12/09/2022', time: '18:40', nickname: login[1].nickname,logo: login[1].logo,IdOwner:login[1].id},
+                { id: 6, message: 'PITIFUL ALLIES!!', date: '01/09/2022', time: '22:40', nickname: login[5].nickname,logo: login[5].logo,IdOwner:login[5].id}],
+
+                NewMessageText: "HELLO"
+        },
     },
     GetState(){
         return this._state;
@@ -75,6 +76,7 @@ let store = {
         this.rerender=observer; /// observer
     },
     dispatch(action){
+        
         if(action.type === "AddPost"){
             let NewId = this._state.profilePage.posts[this._state.profilePage.posts.length-1].id + 1;
             let newPost = {
@@ -95,6 +97,25 @@ let store = {
             this._state.profilePage.posts[action.id-1].likecount = action.like + 1;
             this.rerender(this._state);
         }
+        else if(action.type === "AddMessage"){
+            let date = new Date();
+           let NewId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length-1].id + 1;
+           let NewMessage = {
+            id:NewId,
+            message:this._state.dialogsPage.NewMessageText,
+            date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
+            time: `${date.getHours()}:${date.getMinutes()}`,
+            nickname: login[0].nickname,
+            logo: login[0].logo,
+            IdOwner: login[0].id
+           }
+           this._state.dialogsPage.messages.push(NewMessage)
+           this.rerender(this._state)
+        }
+        else if(action.type=='UpdateNewMSText'){
+            this._state.dialogsPage.NewMessageText = action.newText;
+            this.rerender(this._state)
+        }
         else{
            alert("ERROR dispatch")
         }
@@ -102,7 +123,30 @@ let store = {
     }
 }
 
+export const addPostAction = () => {
+    return {
+        type: 'AddPost'
+    }
+}
+export const UpdateNewPostTextAction = (text) => {
+    return {
+        type: 'UpdateNewPostText',
+        newText:text
+    }
+}
+export const AddMessageAction = () =>{
+    return {
+        type: "AddMessage"
+    }
+}
+export const UpdateNewMSTextAction = (text) => {
+    return {
+        type: 'UpdateNewMSText',
+        newText:text
+    }
+}
 
+store.dispatch(AddMessageAction())
 
 export default store;
 

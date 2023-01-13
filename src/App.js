@@ -17,7 +17,7 @@ function App(props) {
             <SideBar login={props.login} />
             <Routes>
             <Route path='/Profile' element={<Profile state={props.state.profilePage} dispatch={props.dispatch} />}/>
-            <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage}/>}/>
+            <Route path='/Dialogs/*' element={<Dialogs state={props.state.dialogsPage} dispatch={props.dispatch}/>}/>
           </Routes>
            
             </div>         
