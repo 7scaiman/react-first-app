@@ -10,3 +10,4 @@ callback, subscribe, observer
 bind
 action
 dispatch
+reduce (функція яка приймає state,action)

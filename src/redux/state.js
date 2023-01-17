@@ -1,20 +1,8 @@
 
-export let login = [
-    { id: 1, nickname: "Pudgekiller228", password: "123q", logo: "https://avatars.akamai.steamstatic.com/479102385e9fd0d34ddddda4e0434840a794f7e1_full.jpg" },
-    { id: 2, nickname: "Pudgero", password: "123q", logo: "https://i1.sndcdn.com/avatars-000120278070-velp67-t240x240.jpg" },
-    { id: 3, nickname: "fires_bacon", password: "123q", logo: "https://www.meme-arsenal.com/memes/a729b6d72ebe68f8ced63cfb93ffe164.jpg" },
-    { id: 4, nickname: "Anti hooker", password: "123q", logo: "https://cdn.oneesports.gg/cdn-data/2021/09/Anti-Mage_Guilt-of-the-Survivor-1024x576.jpg" },
-    { id: 5, nickname: "talant", password: "123q", logo: "https://i1.sndcdn.com/artworks-JUwkm3SiCcPKGYZr-OUzMmQ-t500x500.jpg" },
-    { id: 6, nickname: "Arthas", password: "123q", logo: "https://static4.tgstat.ru/channels/_0/e1/e148986e6924746d6ffc0e0cda229eeb.jpg" }
-]
-
-const ADD_POST= 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
-const UPDATE_LIKE_POST = 'UPDATE_LIKE_POST'
-
-const ADD_MESSAGE = 'ADD_MESSAGE'
-const UPDATE_NEW_MS_TEXT = 'UPDATE_NEW_MS_TEXT'
-
+import DialogPageReducer from "./DialogPageReducer";
+import ProfilePageReducer from "./ProfilePageReducer";
+import SideBarReducer from "./SideBarReducer";
+import { login } from "./stateLogin";
 
 
 export const addPostAction = () => {
@@ -82,6 +70,7 @@ let store = {
 
                 NewMessageText: ""
         },
+        sidebar: {}
     },
     GetState(){
         return this._state;
@@ -112,56 +101,14 @@ let store = {
         this.rerender=observer; /// observer
     },
     dispatch(action){
-        
-        if(action.type === ADD_POST){
-            let NewId = this._state.profilePage.posts[this._state.profilePage.posts.length-1].id + 1;
-            let newPost = {
-                id: NewId,
-                post: this._state.profilePage.newPostText,
-                likecount: 0,
-                nickname: login[0].nickname,
-                img: login[0].logo
-            }
-            this._state.profilePage.posts.push(newPost)
-            this.rerender(this._state)
-        }
-        else if(action.type === UPDATE_NEW_POST_TEXT){
-            this._state.profilePage.newPostText = action.newText;
-            this.rerender(this._state)
-        }
-        else if(action.type === UPDATE_LIKE_POST){
-            this._state.profilePage.posts[action.id-1].likecount = action.like + 1;
-            this.rerender(this._state);
-        }
-        else if(action.type === ADD_MESSAGE){
-            let date = new Date();
-           let NewId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length-1].id + 1;
-           let NewMessage = {
-            id:NewId,
-            message:this._state.dialogsPage.NewMessageText,
-            date: `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`,
-            time: `${date.getHours()}:${date.getMinutes()}`,
-            nickname: login[0].nickname,
-            logo: login[0].logo,
-            IdOwner: login[0].id
-           }
-           this._state.dialogsPage.messages.push(NewMessage)
-           this.rerender(this._state)
-        }
-        else if(action.type==UPDATE_NEW_MS_TEXT){
-            this._state.dialogsPage.NewMessageText = action.newText;
-            this.rerender(this._state)
-        }
-        else{
-           alert("ERROR dispatch")
-        }
 
+    this._state.profilePage = ProfilePageReducer(this._state.profilePage,action)
+    this._state.dialogsPage = DialogPageReducer(this._state.dialogsPage,action)
+    this._state.sidebar = SideBarReducer(this._state.sidebar,action)
+         
+    this.rerender(this._state)
     }
 }
-
-
-store.dispatch(AddMessageAction())
-
 export default store;
 
 window.store = store
