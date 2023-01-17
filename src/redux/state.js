@@ -8,8 +8,44 @@ export let login = [
     { id: 6, nickname: "Arthas", password: "123q", logo: "https://static4.tgstat.ru/channels/_0/e1/e148986e6924746d6ffc0e0cda229eeb.jpg" }
 ]
 
+const ADD_POST= 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE_NEW_POST_TEXT'
+const UPDATE_LIKE_POST = 'UPDATE_LIKE_POST'
+
+const ADD_MESSAGE = 'ADD_MESSAGE'
+const UPDATE_NEW_MS_TEXT = 'UPDATE_NEW_MS_TEXT'
 
 
+
+export const addPostAction = () => {
+    return {
+        type: 'ADD-POST'
+    }
+}
+export const UpdateNewPostTextAction = (text) => {
+    return {
+        type: 'UPDATE_NEW_POST_TEXT',
+        newText:text
+    }
+}
+export const UpdateNewLikePost = (like,id) => {
+    return {
+        type: 'UPDATE_LIKE_POST',
+        like:like,
+        id:id
+    }
+}
+export const AddMessageAction = () =>{
+    return {
+        type: "ADD_MESSAGE"
+    }
+}
+export const UpdateNewMSTextAction = (text) => {
+    return {
+        type: 'UPDATE_NEW_MS_TEXT',
+        newText:text
+    }
+}
 
 
 let store = {
@@ -44,7 +80,7 @@ let store = {
                 { id: 5, message: 'MmMm Divine', date: '12/09/2022', time: '18:40', nickname: login[1].nickname,logo: login[1].logo,IdOwner:login[1].id},
                 { id: 6, message: 'PITIFUL ALLIES!!', date: '01/09/2022', time: '22:40', nickname: login[5].nickname,logo: login[5].logo,IdOwner:login[5].id}],
 
-                NewMessageText: "HELLO"
+                NewMessageText: ""
         },
     },
     GetState(){
@@ -77,7 +113,7 @@ let store = {
     },
     dispatch(action){
         
-        if(action.type === "AddPost"){
+        if(action.type === ADD_POST){
             let NewId = this._state.profilePage.posts[this._state.profilePage.posts.length-1].id + 1;
             let newPost = {
                 id: NewId,
@@ -89,15 +125,15 @@ let store = {
             this._state.profilePage.posts.push(newPost)
             this.rerender(this._state)
         }
-        else if(action.type === "UpdateNewPostText"){
+        else if(action.type === UPDATE_NEW_POST_TEXT){
             this._state.profilePage.newPostText = action.newText;
             this.rerender(this._state)
         }
-        else if(action.type === "UpdateNewLikePost"){
+        else if(action.type === UPDATE_LIKE_POST){
             this._state.profilePage.posts[action.id-1].likecount = action.like + 1;
             this.rerender(this._state);
         }
-        else if(action.type === "AddMessage"){
+        else if(action.type === ADD_MESSAGE){
             let date = new Date();
            let NewId = this._state.dialogsPage.messages[this._state.dialogsPage.messages.length-1].id + 1;
            let NewMessage = {
@@ -112,7 +148,7 @@ let store = {
            this._state.dialogsPage.messages.push(NewMessage)
            this.rerender(this._state)
         }
-        else if(action.type=='UpdateNewMSText'){
+        else if(action.type==UPDATE_NEW_MS_TEXT){
             this._state.dialogsPage.NewMessageText = action.newText;
             this.rerender(this._state)
         }
@@ -123,28 +159,6 @@ let store = {
     }
 }
 
-export const addPostAction = () => {
-    return {
-        type: 'AddPost'
-    }
-}
-export const UpdateNewPostTextAction = (text) => {
-    return {
-        type: 'UpdateNewPostText',
-        newText:text
-    }
-}
-export const AddMessageAction = () =>{
-    return {
-        type: "AddMessage"
-    }
-}
-export const UpdateNewMSTextAction = (text) => {
-    return {
-        type: 'UpdateNewMSText',
-        newText:text
-    }
-}
 
 store.dispatch(AddMessageAction())
 

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { UpdateNewLikePost } from "../../../../redux/state";
 import css from "./Post.module.css"
 
 function  Post(props){
@@ -18,7 +19,7 @@ function  Post(props){
              alert('Merry Christmas')
             }
             setlikecounter(likecounter+1)
-            props.dispatch({type: "UpdateNewLikePost", id:props.id,like:likecounter})
+            props.dispatch(UpdateNewLikePost(likecounter,props.id))
         }
     }
         />{likecounter}</div>

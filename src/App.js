@@ -10,7 +10,6 @@ function App(props) {
   return (
     <div className="container">
       <div>
-      <BrowserRouter>
         <div className="">
             <Header/>
             <div className="flex">
@@ -22,7 +21,6 @@ function App(props) {
            
             </div>         
        </div>
-            </BrowserRouter>
       </div>
     </div>
   );

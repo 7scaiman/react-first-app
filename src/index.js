@@ -4,13 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store, { login } from './redux/state';
+import { BrowserRouter} from "react-router-dom";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let rerender = (state) => {
   root.render(
     <React.StrictMode>
+      <BrowserRouter>
     <App login={login} state={state} dispatch={store.dispatch.bind(store /*bind*/)}/>
+      </BrowserRouter>
     {/* second option <App post={state.post} messages={state.messages} dialogs={state.dialogs}/> */}
   </React.StrictMode>
 );

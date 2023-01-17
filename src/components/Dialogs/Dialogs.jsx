@@ -35,7 +35,8 @@ const AddMessage = () => {
         <div className={css.messages}>
           {messageMapElements}
         </div>
-        <textarea cols="2" rows="4" ref={TextRef} value={props.state.NewMessageText} className={css.textarea} onChange={onChange}></textarea>
+        
+        <input type="text" className={css.textarea} ref={TextRef} value={props.state.NewMessageText}  onChange={onChange}   />
         <button onClick={AddMessage}>sent</button>
           </div>
       </div>

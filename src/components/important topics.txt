@@ -9,3 +9,4 @@ flux
 callback, subscribe, observer
 bind
 action
+dispatch
